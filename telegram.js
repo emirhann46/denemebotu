@@ -1,5 +1,5 @@
 const telegramBot = require('node-telegram-bot-api');
-const token ="5204961633:AAEOoCHF-4zmPJGyHaEISNt9XEtoQT-6z4s"
+const token ="YOUR_BOT_TOKEN"
 const bot = new telegramBot(token, {polling: true})
 const fetch = require('isomorphic-unfetch')
 
@@ -15,7 +15,7 @@ bot.on('message', async(msg) =>{
             })
         }
         break;
-        case 'ikra':
+        case 'photo':
             bot.sendPhoto(chatId,"https://ichef.bbci.co.uk/news/640/cpsprodpb/10189/production/_100092956_gettyimages-862701736.jpg")
             break;
         case 'video':
@@ -31,7 +31,7 @@ bot.on('message', async(msg) =>{
 })
 
 const getNews=(number)=>{
-   return fetch("https://newsapi.org/v2/top-headlines?country=tr&apiKey=57400cd04db74f03a6bceeb684809f27")
+   return fetch("https://newsapi.org/v2/top-headlines?country=tr&apiKey=API_KEY")
     .then(response => response.json())
     .then(response=>{
        return response.articles
